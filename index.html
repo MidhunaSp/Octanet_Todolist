@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <title>To do list!</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+ <div class="container">
+   <div class="box">
+     <h1>To do list!</h1>
+     <input type="text" placeholder="Enter your task" id="input8x">
+     <ul id="list"></ul>
+   </div>
+ </div>
+  <script>
+    let input8x = document.querySelector('#input8x');
+    let list = document.querySelector('#list');
+   input8x.addEventListener("keyup",function(event){
+     if(event.key == "Enter"){
+       addItem(this.value)
+       this.value = ""
+     }
+   })
+  let addItem = (input8x) => {
+     let listItem = document.createElement("li");
+    listItem.addEventListener("click",function(){
+      listItem.classList.toggle("done")
+    }
+                             )
+    listItem.innerHTML = `${input8x}<i></i>`;
+    listItem.querySelector("i").addEventListener("click",function(){
+      listItem.remove();
+    }
+      
+    )
+    list.appendChild(listItem) ;
+  }
+  </script>
+  
+</body>
+
+</html>
